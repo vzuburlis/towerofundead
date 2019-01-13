@@ -1,0 +1,47 @@
+[
+{
+    "sprite": ["door0", 0, 0], "name": "Door",
+    "block": true, "blocksight": true, "open_to": "Opened Door"
+},
+{
+    "sprite": ["door0", 0, 1], "name": "Iron Door",
+    "block": true, "blocksight": true, "open_to": "Opened Iron Door"
+},
+{
+    "sprite": ["door0", 0, 2], "name": "Iron Bars",
+    "block": true, "open_to": "Opened Iron Bars"
+},
+{
+    "sprite": ["door1", 0, 0], "name": "Opened Door"
+},
+{
+    "sprite": ["door1", 0, 1], "name": "Opened Iron Door",
+    "close_to": "Iron Door"
+},
+{
+    "sprite": ["door1", 0, 2], "name": "Opened Iron Bars",
+    "close_to": "Iron Bars"
+},
+{
+    "sprite": ["door0", 2, 0], "name": "Locked Door",
+    "block": true, "blocksight": true, "unlock_to": "Opened Door"
+},
+{
+    "sprite": ["decor0", 0, 2], "name": "Rune"
+},
+{
+    "sprite": ["decor0", 1, 2], "name": "Rune"
+},
+{
+    "sprite": ["decor0", 2, 2], "name": "Rune"
+},
+{
+    "sprite": ["decor0", 3, 2], "name": "Rune"
+},
+{
+    "sprite": ["ground0", 0, 5], "name": "Blood"
+},
+{
+    "sprite": ["ground0", 1, 5], "name": "Blood"
+}
+]

@@ -1,0 +1,102 @@
+[{
+    "sprite": ["potion", 0, 0],
+    "name": "Potion of Healing",
+    "effect": "heal"
+},
+{
+    "sprite": ["potion", 2, 0],
+    "name": "Potion of Strength",
+    "effect": "strength",
+    "effect_time": 24
+},
+{
+    "sprite": ["potion", 1, 0],
+    "name": "Potion of Speed",
+    "effect": "speed",
+    "effect_time": 24
+},
+{
+    "sprite": ["armor", 0, 0],
+    "name": "Armor Upgrade",
+    "effect": "+armor"
+},
+{
+    "sprite": ["shortwep", 0, 0],
+    "name": "Attack Upgrade",
+    "effect": "+attack"
+},
+{
+    "sprite": ["key", 0, 0],
+    "name": "Key",
+    "effect": "+key"
+},
+{
+    "sprite": ["potion", 3, 3],
+    "name": "Potion of Holy Water",
+    "effect": "bless",
+    "effect_time": 24
+},
+{
+    "sprite": ["scroll", 0, 0],
+    "name": "Scroll of Map",
+    "effect": "map-reveal"
+},
+{
+    "sprite": ["scroll", 1, 0],
+    "name": "Scroll of Invisibility",
+    "effect": "invisible",
+    "effect_time": 24
+},
+{
+    "sprite": ["scroll", 2, 0],
+    "name": "Scroll of Sucrifice",
+    "effect": "sucrifice-rnd"
+},
+{
+    "sprite": ["scroll", 3, 0],
+    "name": "Scroll of Tracking",
+    "effect": "track-all",
+    "effect_time": 100
+},
+{
+    "sprite": ["scroll", 4, 0],
+    "name": "Scroll of Bless",
+    "effect": "bless",
+    "effect_time": 100
+},
+{
+    "sprite": ["scroll", 5, 0],
+    "name": "Scroll of Curse",
+    "effect": "curse",
+    "target": "enemies",
+    "effect_time": 48
+},
+{
+    "sprite": ["scroll", 5, 0],
+    "name": "Scroll of Confuze",
+    "effect": "confuze",
+    "target": "enemies",
+    "effect_time": 10
+},
+{
+    "sprite": ["scroll", 6, 0],
+    "name": "Scroll of Healing",
+    "effect": "heal"
+},
+{
+    "sprite": ["gauze", 0, 0],
+    "name": "Gauze",
+    "effect": "stop-bleed"
+},
+{
+    "sprite": ["scroll", 7, 0],
+    "name": "Scroll of Displel Magic",
+    "effect": "dispel-magic"
+},
+{
+    "sprite": ["scroll", 6, 0],
+    "name": "Scroll of Lightning",
+    "effect": "lightning-strike",
+    "target": "enemies"
+}
+]
