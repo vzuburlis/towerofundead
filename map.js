@@ -9,6 +9,9 @@ function mapClass (options) {
     that.door = [];
     that.startpoint = [];
     that.lastRoom = null;
+    that.midDoor = 0;
+    that.midRoom = 0;
+    that.startRoom = 2;
 
     that.createBSP = function () {
         // Binary Space Partitioning 
@@ -32,16 +35,23 @@ function mapClass (options) {
             that.map[that.door[i][0]][that.door[i][1]] = '.'
         }
 
-        r = that.room[2]
+        r = that.room[that.startRoom]
         x = Math.floor(r.sx+r.x/2)
         y = Math.floor(r.sy+r.y/2)
         that.map[x][y] = '>'
         that.startpoint = [x,y]
+        that.stepFrom(2)
         r = that.room[that.room.length-1]
         x = Math.floor(r.sx+r.x/2)
         y = Math.floor(r.sy+r.y/2)
         that.map[x][y] = '<'
     };
+
+    that.stepFrom = function(room) {
+      for(let i=0; i<that.room[room].links; i++) {
+        that.room[room].links[i]
+      }
+    }
 
     that.bspLeaf = function(l,n,d) {
         if (Math.floor(Math.random()*5) == 0) r=false; else r=true;
@@ -53,6 +63,8 @@ function mapClass (options) {
             l.c1 = {x:l.x, y:hy+1, sx:l.sx, sy:l.sy}
             l.c2 = {x:l.x, y:(l.y-hy), sx:l.sx, sy:l.sy+hy}
             that.bspLeaf(l.c1,0,'v')
+            if(d=='x') that.midRoom = that.room.length-1
+            if(d=='x') that.midDoor = that.door.length-1
             that.bspLeaf(l.c2,1,'v')
           } else {
             that.drawLeaf(l,n,d)
@@ -63,6 +75,8 @@ function mapClass (options) {
             l.c1 = {x:hx+1, y:l.y, sx:l.sx, sy:l.sy}
             l.c2 = {x:(l.x-hx), y:l.y, sx:l.sx+hx, sy:l.sy}
             that.bspLeaf(l.c1,0,'h')
+            if(d=='x') that.midRoom = that.room.length-1
+            if(d=='x') that.midDoor = that.door.length-1
             that.bspLeaf(l.c2,1,'h')
           } else {
             that.drawLeaf(l,n,d)
@@ -83,6 +97,7 @@ function mapClass (options) {
     }
 
     that.drawLeaf = function(l,n,d) { // leaf, index, direction
+      l.links = []
       that.room.push(l)
       for (x=l.sx+1;x<l.x+l.sx-1;x++) {
         for (y=l.sy+1;y<l.y+l.sy-1;y++) {
@@ -114,8 +129,13 @@ function mapClass (options) {
             room1 = that.findRoom(x,y-1)
             room2 = that.findRoom(x,y+1)
           }
-          if(room1>room2) r=room1; else r=room2;
+          r=null
+          if(room1<room2) r=room1; else r=room2;
+          that.room[room1].links.push(room2)
+          that.room[room2].links.push(room1)
           that.door.push([x,y,r,d])
+          that.door[that.door.length-1].r1 = room1
+          that.door[that.door.length-1].r2 = room2
         }
     }
 

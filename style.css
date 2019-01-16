@@ -110,7 +110,7 @@ button{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1350px) {
     #controls {
         display:none;
     }

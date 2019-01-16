@@ -99,21 +99,25 @@ var monsters = [];
 var items = <?=json_encode($c->items)?>;
 var objects = Array();
 
-let randDoor = Math.floor(Math.random() * (mapGen.door.length-2))
+addedKey = false
+randomDoor = Math.floor(Math.random() * (mapGen.midDoor/3))
+roomWithKey = mapGen.door[randomDoor][2]
 for(let i=0; i<mapGen.door.length; i++) {
     if(Math.floor(Math.random()*4) > 0) {
         t=0;
         if(Math.floor(Math.random()*2) > 0) t=i%6;
-        if(i>randDoor && i>mapGen.door.length-5) {
-            roomWithKey = mapGen.door[randDoor][2]
+        dr1 = mapGen.door[i].r1
+        dr2 = mapGen.door[i].r2
+        if(false==addedKey && dr1!=mapGen.startRoom && dr2!=mapGen.startRoom && dr1!=roomWithKey && dr2!=roomWithKey && mapGen.room[dr1].links.length==1) {
             r = mapGen.room[roomWithKey]
-            items.push([r.sx+r.x/2, r.sy+r.y/2, 5]);
+            items.push([Math.floor(r.sx+r.x/2), Math.floor(r.sy+r.y/2), 5]);
             t=6
-            randDoor = mapGen.door.length
+            addedKey = true
         }
         objects.push({x:mapGen.door[i][0], y:mapGen.door[i][1], type:t});
     }
 }
+
 
 for (let i=0; i<monsters_data.length; i++) {
     monsters.push(unitClass(monsters_data[i]));
@@ -123,7 +127,7 @@ for(let i=0; i<monsters.length; i++) {
     monsters[i].x = p.x;
     monsters[i].y = p.y;
 } 
-for(let i=0; i<items.length; i++) {
+for(let i=0; i<items.length; i++) if(items[i][2]!=5){
     p = randomPos();
     items[i][0] = p.x;
     items[i][1] = p.y;
@@ -140,8 +144,8 @@ var statusImg = [];
 var itemType = <?=json_encode($c->itemType)?>;
 var objectType = <?=json_encode($c->objectType)?>;
 var timeBit = 0;
-renderWidth = 14;
-renderHeight = 7;
+renderWidth = 20//14;
+renderHeight = 20//7;
 var clientWidth = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
@@ -316,5 +320,6 @@ function blockedPos(x,y) {
   gtag('js', new Date());
 
   gtag('config', 'UA-130027935-1');
+
 </script>
 

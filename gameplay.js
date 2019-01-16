@@ -35,11 +35,13 @@ function renderMap() {
   for (i=0; i<items.length; i++) if(items[i].carrier==null) {
     x = items[i][0]
     y = items[i][1]
+    if(typeof mapRev[x]=='undefined') console.log('x: '+x)
+    if(typeof mapRev[x][y]=='undefined') console.log('y: '+y)
     if(mapRev[x][y]>1) {
         if(typeof itemType[items[i][2]]!='undefined') {
             _t = itemType[items[i][2]].sprite
           drawSprite(x,y, itemImg[_t[0]], _t[1], _t[2]);
-        } else console.log(items[i][2])//drawImage(x,y, itemImg[items[i][2]]);
+        } else console.log(items[i][2])
     }
   }
 

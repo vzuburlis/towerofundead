@@ -34,7 +34,7 @@
     "sprite": ["potion", 3, 3],
     "name": "Potion of Holy Water",
     "effect": "bless",
-    "effect_time": 24
+    "effect_time": 48
 },
 {
     "sprite": ["scroll", 0, 0],
@@ -87,11 +87,6 @@
     "sprite": ["gauze", 0, 0],
     "name": "Gauze",
     "effect": "stop-bleed"
-},
-{
-    "sprite": ["scroll", 7, 0],
-    "name": "Scroll of Displel Magic",
-    "effect": "dispel-magic"
 },
 {
     "sprite": ["scroll", 6, 0],
